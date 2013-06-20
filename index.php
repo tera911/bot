@@ -49,7 +49,7 @@ margin:2px;
 				    <li class="disable"><a href="?page=2">3</a></li>
 				    <li class="disable"><a href="?page=3">4</a></li>
 				    <li class="disable"><a href="?page=4">5</a></li>
-				    <li class="disable"><a href="<?php $page = isset($_GET['page']) ? $_GET['page'] : "0"; echo "./?page=".$page; ?>">Next</a></li>
+				    <li class="disable"><a href="<?php $page = isset($_GET['page']) ? $_GET['page'] : "0"; echo "./?page=".++$page; ?>">Next</a></li>
 				  </ul>
 				</div>
 			</div>
