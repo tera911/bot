@@ -29,24 +29,41 @@ margin:2px;
 $(document).ready(function(){
 	getWords();
 	jQuery('[name="adddata"]').click(sendWord);
+	jQuery('[name="word"]').bind("change keyup",textCounter);
+	
 });
 function sendWord(){
-	var text = jQuery('textarea[name="word"]').val();
+	var text = jQuery('textarea[name="word"]');
 	$.post(
 			"action.php",
-			{"action" : "ADD", "data" : text},
+			{"action" : "ADD", "data" : text.val()},
 			function(data, status){
+				var messenger = jQuery('#message'); 
 				if(data == "true"){
-					jQuery('#message').attr('style','');
-					jQuery('#message').text("追加成功");
+					messenger.slideToggle(500);
+					messenger.addClass('alert alert-success');
+					messenger.text("追加成功");
 				}else{
-					jQuery('#message').attr('style','');
-					jQuery('#message').text("追加失敗"+data);
+					messenger.slideToggle(500);
+					messenger.addClass('alert alert-error');
+					messenger.text("追加失敗"+data);
 				}
 			},
 			"html"
 		);
 	window.setTimeout("getWords()",500);
+	text.val("");
+	window.setTimeout(function(){jQuery('#message').slideToggle(100);},1000);
+}
+
+function textCounter(){
+	counter = 140 - jQuery('[name="word"]').val().length;
+	if(counter < 10){
+		jQuery('#counter').attr("style","color:#E00");
+	}else{
+		jQuery('#counter').attr("style","");
+	}
+	jQuery('#counter').text(counter);
 }
 function getWords(){
 	table = jQuery('#words');
@@ -72,17 +89,15 @@ function getWords(){
 	<div class="container">
 		<p class="hero-unit">ワード登録ページ</p>
 		<div class="row-fluid">
-			<div class="offset8 span3"><textarea name="word" rows="3"></textarea></div>
+			<div class="span8"><p id="message" class="text-center" style="display:none;">めっせーじ</p></div>
+			<div class="span3"><textarea name="word" rows="3" maxlength="140"></textarea></div>
 			<div class="row-fluid">
-				<div class="span1"></div>
+				<div class="span1"><p id="counter" class="text-center">140</p></div>
 				<div class="span1 blank"><input type="button" name="adddata" value="追加" class="btn btn-primary "></div>
 			</div>
 		</div>
 		<div class="row-fluid">
-			<div class="span8"><span id="message" class="success" style="display:none;">めっせーじ</span></div>
-		</div>
-		<div class="row-fluid">
-			<div class="span4"><input type="button" name="select" value="すべて選択" class="btn"></div>
+			<div class="span4"><input type="button" name="allselect" value="すべて選択" class="btn"></div>
 			<div class="span4"><input type="button" name="delete" value="選択したものを削除" class="btn"></div>
 			<div class=" span4">
 				<div class="pagination blank_clear">

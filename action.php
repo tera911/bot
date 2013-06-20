@@ -30,7 +30,7 @@ function add($data){
 }
 function get(){
 	//データベースからデータを取ってくる
-	$query = sprintf("SELECT * FROM words LIMIT %d,30;",30 * $page);//LIMIT のoffsetをＧＥＴパラメータ値で設定する
+	$query = sprintf("SELECT * FROM words;");//LIMIT のoffsetをＧＥＴパラメータ値で設定する
 	$result = execQuery($query);
 	echo '<tr><td>CheckBox</td><td>ID</td><td>ワード</td></tr>';
 	while($row = mysqli_fetch_assoc($result)){
