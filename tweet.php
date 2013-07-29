@@ -74,7 +74,12 @@ body {
 			<p>きちんと勉強することです ?T @3mkn : oicbotさん、ap受かる方法を教えてください</p>
 			<p>&#344; &#342; &#340;</p>
 		</div>
-		<div id="timeline"></div>
+		<div id="timeline">
+			
+		</div>
+	</div>
+	<div id="footer">
+		<p>Copyright manyu</p>
 	</div>
 </body>
 </html>
