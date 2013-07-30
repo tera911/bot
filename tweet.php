@@ -6,9 +6,8 @@
 <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-<!--   <script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <style type="text/css">
 <!--
 body {
@@ -38,7 +37,7 @@ body {
 /* timeline */
 .tweetBox{
 border:1px solid #AAA;
-background-color:#bebec5;
+background-color:rgba(0,191,255,0.2);
 border-radius:0.5em 0.5em;
 margin-top:5px;
 }
