@@ -25,7 +25,7 @@ body {
 
 @media ( max-width : 480px) {
 	#main {
-		width: 95%;
+		width: 100%;
 		margin: 0 auto;
 	}
 }
@@ -43,7 +43,7 @@ body {
 	border: 1px solid #AAA;
 	background-color: rgba(0, 191, 255, 0.2);
 	border-radius: 0.5em 0.5em;
-	margin-top: 5px;
+	margin: 2px 0 3px;
 }
 
 .tweetBox .icon {
