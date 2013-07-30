@@ -73,7 +73,7 @@ body {
 }
 
 .tweet p {
-	
+	padding:0 2px;
 }
 
 .tweet .action {
@@ -122,6 +122,7 @@ body {
 				setTimeout("scrollTo(0,1)", 100);
 				
 				$('#tweet').click(function(){
+					$(this).toggleClass('btn-info');
 					$('#tweetButton').toggle("show");
 				});
 			});
@@ -169,7 +170,7 @@ body {
 					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
 					<div class="tweet text-left">
 						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
-						<p>もじもじうちゃちゃ</p>
+						<p>もじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃ</p>
 						<div class="action clearfix">
 							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
 							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
