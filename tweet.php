@@ -54,16 +54,17 @@ float:left;
 	margin-left:80px;
 }
 .tweetBox .tweet .screenName{
-	float:left;
 	margin:3px;
 }
 .tweetBox .tweet .twitterId{
-	float:left;
 	margin:3px;
 	font-size:0.75em;
 }
 .tweet p{
 	
+}
+.tweet .action{
+	margin-left:10px;
 }
 
 -->
@@ -131,11 +132,15 @@ float:left;
 								<img alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
 							</a>
 						</div>
-						<div class="tweet">
-							<div class="screenName">tera@まにゅん</div><div class="twitterId clearfix">@tera09</div>
-							<div class="clearfix"><p class="text-left">aaa</p></div>
+						<div class="tweet text-left">
+							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
+							<p>aaa</p>
 							
-							<div class="action clearfix">rt fav ret</div>
+							<div class="action clearfix">
+							<a href="#">Replay<i  class="icon-share-alt"></i></a>
+							<a href="#">Favorite<i  class="icon-star-empty"></i></a>
+							<a href="#">Retweet<i  class="icon-refresh"></i></a>
+							</div>
 							
 						</div>
 					</div>
