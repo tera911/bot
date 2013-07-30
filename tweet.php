@@ -6,8 +6,9 @@
 <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<!--   <script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
 <style type="text/css">
 <!--
 body {
@@ -64,7 +65,13 @@ float:left;
 	
 }
 .tweet .action{
-	margin-left:10px;
+text-align:right;
+}
+.tweet .action a{
+	margin-right:5px;
+}
+.tweet .action i{
+	margin-left:5px;
 }
 
 -->
@@ -134,29 +141,51 @@ float:left;
 						</div>
 						<div class="tweet text-left">
 							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>aaa</p>
-							
+							<p>もじもじうちゃちゃ</p>
 							<div class="action clearfix">
-							<a href="#">Replay<i  class="icon-share-alt"></i></a>
-							<a href="#">Favorite<i  class="icon-star-empty"></i></a>
-							<a href="#">Retweet<i  class="icon-refresh"></i></a>
+							<a href="#">Replay<i class="icon-share-alt"></i></a>
+							<a href="#">Favorite<i class="icon-star-empty"></i></a>
+							<a href="#">Retweet<i class="icon-refresh"></i></a>
 							</div>
-							
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span12">
-					<div class="tweet">
-						<p>aaa</p>
+					<div class="tweetBox">
+						<div class="icon"><a href="#">
+								<img alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+							</a>
+						</div>
+						<div class="tweet text-left">
+							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
+							<p>もじもじうちゃちゃ</p>
+							<div class="action clearfix">
+							<a href="#">Replay<i class="icon-share-alt"></i></a>
+							<a href="#">Favorite<i class="icon-star-empty"></i></a>
+							<a href="#">Retweet<i class="icon-refresh"></i></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span12">
-					<div class="tweet">
-						<p>aaa</p>
+					<div class="tweetBox">
+						<div class="icon"><a href="#">
+								<img alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+							</a>
+						</div>
+						<div class="tweet text-left">
+							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
+							<p>もじもじうちゃちゃ</p>
+							<div class="action clearfix">
+							<a href="#">Replay<i class="icon-share-alt"></i></a>
+							<a href="#">Favorite<i class="icon-star-empty"></i></a>
+							<a href="#">Retweet<i class="icon-refresh"></i></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
