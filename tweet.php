@@ -25,7 +25,7 @@ body {
 
 @media ( max-width : 480px) {
 	#main {
-		width: 80%;
+		width: 95%;
 		margin: 0 auto;
 	}
 }
