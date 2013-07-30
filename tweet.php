@@ -122,12 +122,14 @@ body {
 	<div id="main" class="text-center">
 		<div class="navbar">
 			<div class="navbar-inner">
+			
 				<ul class="nav">
-					<li class="active divider-vertical"><a href="#">Home</a></li>
+					<li class="active divider-vertical"><a href="#"><i class="icon-home"></i>Home</a></li>
 					<li class="divider-vertical"><a href="#">@</a></li>
-					<li class="divider-vertical"><a href="#">Profile</a></li>
+					<li class="divider-vertical"><a href="#">Profile</a></li					
 				</ul>
-				<div class="pull-right"><a class="brand btn" href="#"><i class="icon-pencil"></i></a></div>
+				<div class="pull-right"><a class="btn-navbar"><i class="icon-pencil"></i></a></div>
+				<!--  <div class="pull-right"><a class="brand btn" href="#"><i class="icon-pencil"></i></a></div>-->
 			</div>
 		</div>
 		<div id="tweetButton">
