@@ -79,11 +79,11 @@ body {
 }
 
 .tweet .action a {
-	margin-right: 5px;
+	margin: 0 5px;
 }
 
 .tweet .action i {
-	margin-left: 5px;
+	margin: 0 5px;
 }
 -->
 </style>
@@ -122,14 +122,12 @@ body {
 	<div id="main" class="text-center">
 		<div class="navbar">
 			<div class="navbar-inner">
-				<a class="brand" href="#">Reflash</a>
 				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">@</a></li>
-					<li><a href="#">Profile</a></li>
-					<li class="pull-right text-right"><a href="#">Profile</a></li>
+					<li class="active divider-vertical"><a href="#">Home</a></li>
+					<li class="divider-vertical"><a href="#">@</a></li>
+					<li class="divider-vertical"><a href="#">Profile</a></li>
 				</ul>
-				<a class="brand pull-right" href="#"><i class="icon-pencil"></i></a>
+				<div class="pull-right"><a class="brand btn" href="#"><i class="icon-pencil"></i></a></div>
 			</div>
 		</div>
 		<div id="tweetButton">
