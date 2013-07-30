@@ -51,27 +51,24 @@ body {
 	margin: 2px 0 3px;
 }
 
-.tweetBox .icon {
-	float: left;
-}
 
-.tweetBox .icon img {
+.tweetBox .icon{
 	width: 64px;
 	height: 64px;
 	float: left;
 	padding: 5px;
+	cursor: pointer;
 }
 
 .tweetBox .tweet {
 	margin-left: 80px;
 }
 
-.tweetBox .tweet .screenName {
+.tweetBox .tweet > span {
 	margin: 3px;
 }
 
 .tweetBox .tweet .twitterId {
-	margin: 3px;
 	font-size: 0.75em;
 }
 
@@ -83,12 +80,15 @@ body {
 	text-align: right;
 }
 
+.tweet .action > div{
+	padding:0 2px 0;
+}
 .tweet .action a {
 	margin: 0 5px;
 }
 
 .tweet .action i {
-	margin: 0 5px;
+	margin: 3px 5px 0;
 }
 -->
 </style>
@@ -122,7 +122,7 @@ body {
 				setTimeout("scrollTo(0,1)", 100);
 				
 				$('#tweet').click(function(){
-					$('#tweetButton').toggle();
+					$('#tweetButton').toggle("show");
 				});
 			});
 
@@ -165,139 +165,101 @@ body {
 		
 		<div id="timeline">
 			<div class="row-fluid">
-				<div class="span12">
-					<div class="tweetBox">
-						<div class="icon">
-							<a href="#"> <img alt="icon"
-								src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-							</a>
-						</div>
-						<div class="tweet text-left">
-							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>もじもじうちゃちゃ</p>
-							<div class="action clearfix">
-								<a href="#"><span class="hidden-phone">Replay</span><i
-									class="icon-share-alt"></i></a> <a href="#"><span
-									class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></a>
-								<a href="#"><span class="hidden-phone">Retweet</span><i
-									class="icon-refresh"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-						<div class="row-fluid">
-				<div class="span12">
-					<div class="tweetBox">
-						<div class="icon">
-							<a href="#"> <img alt="icon"
-								src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-							</a>
-						</div>
-						<div class="tweet text-left">
-							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>もじもじうちゃちゃ</p>
-							<div class="action clearfix">
-								<a href="#"><span class="hidden-phone">Replay</span><i
-									class="icon-share-alt"></i></a> <a href="#"><span
-									class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></a>
-								<a href="#"><span class="hidden-phone">Retweet</span><i
-									class="icon-refresh"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-						<div class="row-fluid">
-				<div class="span12">
-					<div class="tweetBox">
-						<div class="icon">
-							<a href="#"> <img alt="icon"
-								src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-							</a>
-						</div>
-						<div class="tweet text-left">
-							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>もじもじうちゃちゃ</p>
-							<div class="action clearfix">
-								<a href="#"><span class="hidden-phone">Replay</span><i
-									class="icon-share-alt"></i></a> <a href="#"><span
-									class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></a>
-								<a href="#"><span class="hidden-phone">Retweet</span><i
-									class="icon-refresh"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="tweetBox">
-						<div class="icon">
-							<a href="#"> <img alt="icon"
-								src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-							</a>
-						</div>
-						<div class="tweet text-left">
-							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>もじもじうちゃちゃ</p>
-							<div class="action clearfix">
-								<a href="#"><span class="hidden-phone">Replay</span><i
-									class="icon-share-alt"></i></a> <a href="#"><span
-									class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></a>
-								<a href="#"><span class="hidden-phone">Retweet</span><i
-									class="icon-refresh"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="tweetBox">
-						<div class="icon">
-							<a href="#"> <img alt="icon"
-								src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-							</a>
-						</div>
-						<div class="tweet text-left">
-							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>もじもじうちゃちゃ</p>
-							<div class="action clearfix">
-								<a href="#"><span class="hidden-phone">Replay</span><i
-									class="icon-share-alt"></i></a> <a href="#"><span
-									class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></a>
-								<a href="#"><span class="hidden-phone">Retweet</span><i
-									class="icon-refresh"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span12">
-					<div class="tweetBox">
-						<div class="icon">
-							<a href="#"> <img alt="icon"
-								src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-							</a>
-						</div>
-						<div class="tweet text-left">
-							<span class="screenName">tera@まにゅん</span><span class="twitterId">@tera09</span>
-							<p>もじもじうちゃちゃ</p>
-							<div class="action clearfix">
-								<a href="#"><span class="hidden-phone">Replay</span><i
-									class="icon-share-alt"></i></a> <a href="#"><span
-									class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></a>
-								<a href="#"><span class="hidden-phone">Retweet</span><i
-									class="icon-refresh"></i></a>
-							</div>
+				<div class="tweetBox span12">
+					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+					<div class="tweet text-left">
+						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<p>もじもじうちゃちゃ</p>
+						<div class="action clearfix">
+							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div id="timeline">
+			<div class="row-fluid">
+				<div class="tweetBox span12">
+					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+					<div class="tweet text-left">
+						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<p>もじもじうちゃちゃ</p>
+						<div class="action clearfix">
+							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="timeline">
+			<div class="row-fluid">
+				<div class="tweetBox span12">
+					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+					<div class="tweet text-left">
+						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<p>もじもじうちゃちゃ</p>
+						<div class="action clearfix">
+							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="timeline">
+			<div class="row-fluid">
+				<div class="tweetBox span12">
+					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+					<div class="tweet text-left">
+						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<p>もじもじうちゃちゃ</p>
+						<div class="action clearfix">
+							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="timeline">
+			<div class="row-fluid">
+				<div class="tweetBox span12">
+					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+					<div class="tweet text-left">
+						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<p>もじもじうちゃちゃ</p>
+						<div class="action clearfix">
+							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="timeline">
+			<div class="row-fluid">
+				<div class="tweetBox span12">
+					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
+					<div class="tweet text-left">
+						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<p>もじもじうちゃちゃ</p>
+						<div class="action clearfix">
+							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	<div id="footer" class="row-fluid">
 		<div class="span12 text-center">
 			<p>
