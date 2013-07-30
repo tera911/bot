@@ -21,6 +21,9 @@ body {
 		width: 500px;
 		margin: 0 auto;
 	}
+	.replayform div.btn{
+		margin:25px;
+	}
 }
 
 @media ( max-width : 480px) {
@@ -44,6 +47,7 @@ body {
 }
 
 /* timeline */
+
 .tweetBox {
 	border: 1px solid #AAA;
 	background-color: rgba(0, 191, 255, 0.2);
@@ -61,11 +65,13 @@ body {
 }
 
 .tweetBox .tweet {
+	margin-top:5px;
 	margin-left: 80px;
 }
 
-.tweetBox .tweet > span {
-	margin: 3px;
+.tweetBox .tweet > span:nth-child(1) {
+	margin: 5px;
+	font-weight:600;
 }
 
 .tweetBox .tweet .twitterId {
@@ -78,6 +84,7 @@ body {
 
 .tweet .action {
 	text-align: right;
+	margin-bottom:5px;
 }
 
 .tweet .action > div{
@@ -89,6 +96,15 @@ body {
 
 .tweet .action i {
 	margin: 3px 5px 0;
+}
+
+.tweetBox .replayform textarea{
+	width:95%;
+	resize:none;
+	margin:5px 0;
+}
+.tweetBox .replayform > p{
+	
 }
 -->
 </style>
@@ -121,9 +137,25 @@ body {
 				$('#tweetButton').toggle();
 				setTimeout("scrollTo(0,1)", 100);
 				
+				
 				$('#tweet').click(function(){
 					$(this).toggleClass('btn-info');
 					$('#tweetButton').toggle("show");
+				});
+
+				//返信ボタンを押したときの処理
+				$('.replay').click(function(){
+					var replayForm = $(this).parent().parent().parent().children('.replayform');
+					var twitterId = $(this).parent().parent().parent().children('.tweet').children('.twitterId');
+					if(replayForm.css('display') == 'none'){
+						if(replayForm.children().children('textarea').val() == ""){
+							replayForm.toggle(300).children().children('textarea').focus().val(twitterId.text() + " ");
+						}else{
+							replayForm.toggle(300).focus();
+						}
+					}else{
+						replayForm.toggle(200).children().children('textarea');
+					}
 				});
 			});
 
@@ -163,8 +195,8 @@ body {
 			<p>きちんと勉強することです ?T @3mkn : oicbotさん、ap受かる方法を教えてください</p>
 			<p>&#344; &#342; &#340;</p>
 		</div>
-		
-		<div id="timeline">
+<div id="content">
+		<div id="timeline1">
 			<div class="row-fluid">
 				<div class="tweetBox span12">
 					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
@@ -172,10 +204,16 @@ body {
 						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
 						<p>もじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃ</p>
 						<div class="action clearfix">
-							<div class="btn btn-link"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
-							<div class="btn btn-link"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
-							<div class="btn btn-link"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
+							<div class="btn btn-link replay"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
+							<div class="btn btn-link favorite"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
+							<div class="btn btn-link retweet"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
 						</div>
+					</div>
+					<div class="replayform row-fluid" style="display:none;">
+						<div class="span8 offset1">
+							<textarea rows="4" cols="50"></textarea>
+						</div>
+						<div class="span2 btn"><span>replay</span></div>
 					</div>
 				</div>
 			</div>
@@ -260,7 +298,7 @@ body {
 				</div>
 			</div>
 		</div>
-
+</div>
 	<div id="footer" class="row-fluid">
 		<div class="span12 text-center">
 			<p>
