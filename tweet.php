@@ -7,7 +7,7 @@
 <link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,initial-scale=1,maximum-scale=1">
 <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
-
+<script type="text/javascript" src="./js/jquery.tweetEvents.js"></script>
 <style type="text/css">
 <!--
 body {
@@ -74,7 +74,7 @@ body {
 	font-weight:600;
 }
 
-.tweetBox .tweet_detail .twitterId {
+.tweetBox .tweet_detail .screenName {
 	font-size: 0.75em;
 }
 
@@ -145,20 +145,8 @@ body {
 					$(this).toggleClass('btn-info');
 					$('#tweetButton').toggle("show");
 				});
-				//返信ボタンを押したときの処理
-				$('.replay').click(function(){
-					var replayForm = $(this).parent().parent().parent().children('.replayform');
-					var twitterId = $(this).parent().parent().parent().children('.tweet').children('.twitterId');
-					if(replayForm.css('display') == 'none'){
-						if(replayForm.children().children('textarea').val() == ""){
-							replayForm.toggle(300).children().children('textarea').focus().val(twitterId.text() + " ");
-						}else{
-							replayForm.toggle(300).focus();
-						}
-					}else{
-						replayForm.toggle(200).children().children('textarea');
-					}
-				});
+
+				
 			});
 		function getTimeline(){
 			$.ajax({
@@ -167,6 +155,9 @@ body {
 				dataType : 'json',
 				success : function(data,dataType){
 					console.log(data);	
+					data.forEach(function(e){addTimeline(e);});
+					$('.replay').unbind().bind('click',toggleReplayForm);
+					$('.profilelink').unbind().bind('click',openUserProfilePage);
 				}
 			});
 		}
@@ -174,10 +165,10 @@ body {
 			$('#timeline').prepend(' \
 			<div class="row-fluid tweet">	\
 					<div class="tweetBox span12">	\
-						<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">	\
+						<div class="profilelink" user-url="'+ "http://twitter.com/"+ object.user.screen_name +'"><img class="icon" alt="icon" src="'+ object.user.profile_image_url +'"></div>	\
 						<div class="tweet_detail text-left">	\
-							<span>tera@まにゅん</span><span class="twitterId">@tera09</span>	\
-							<p>mozi</p>	\
+							<span>'+ object.user.name +'</span><span class="screenName">@'+ object.user.screen_name +'</span>	\
+							<p>'+ object.text +'</p>	\
 							<div class="action clearfix">	\
 								<div class="btn btn-link replay"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>	\
 								<div class="btn btn-link favorite"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>	\
@@ -194,7 +185,6 @@ body {
 				</div>');
 		}
 
-
 		-->
 		</script>
 </head>
@@ -205,7 +195,7 @@ body {
 				<ul class="nav">
 					<li class="active" onclick="getTimeline();"><a href="#"><i class="icon-home"></i><span class="hidden-phone">Home</span></a></li>
 					<li><a href="#">@</a></li>
-					<li onclick="addTimeline();"><a href="#"><i class="icon-user"></i><span class="hidden-phone">Profile</span></a></li>				
+					<li><a href="#"><i class="icon-user"></i><span class="hidden-phone">Profile</span></a></li>				
 				</ul>
 				<div id="tweet" class="pull-right text-right btn"><i class="icon-pencil"></i></div>
 			</div>
@@ -236,67 +226,7 @@ body {
 				<div class="tweetBox span12">
 					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
 					<div class="tweet_detail text-left">
-						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
-						<p>もじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃ</p>
-						<div class="action clearfix">
-							<div class="btn btn-link replay"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
-							<div class="btn btn-link favorite"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
-							<div class="btn btn-link retweet"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
-						</div>
-					</div>
-					<div class="replayform row-fluid" style="display:none;">
-						<div class="span8 offset1">
-							<textarea rows="4" cols="50"></textarea>
-						</div>
-						<div class="span2 btn"><span>replay</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="row-fluid tweet">
-				<div class="tweetBox span12">
-					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-					<div class="tweet_detail text-left">
-						<span>tera@まにゅん</span><span class="twitterId">@teraaaaa09</span>
-						<p>もじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃ</p>
-						<div class="action clearfix">
-							<div class="btn btn-link replay"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
-							<div class="btn btn-link favorite"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
-							<div class="btn btn-link retweet"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
-						</div>
-					</div>
-					<div class="replayform row-fluid" style="display:none;">
-						<div class="span8 offset1">
-							<textarea rows="4" cols="50"></textarea>
-						</div>
-						<div class="span2 btn"><span>replay</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="tweetBox span12">
-					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-					<div class="tweet text-left">
-						<span>tera@まにゅん</span><span class="twitterId">@manu</span>
-						<p>もじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃ</p>
-						<div class="action clearfix">
-							<div class="btn btn-link replay"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
-							<div class="btn btn-link favorite"><span class="hidden-phone">Favorite</span><i class="icon-star-empty"></i></div>
-							<div class="btn btn-link retweet"><span class="hidden-phone">Retweet</span><i	class="icon-refresh"></i></div>
-						</div>
-					</div>
-					<div class="replayform row-fluid" style="display:none;">
-						<div class="span8 offset1">
-							<textarea rows="4" cols="50"></textarea>
-						</div>
-						<div class="span2 btn"><span>replay</span></div>
-					</div>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="tweetBox span12">
-					<img class="icon" alt="icon" src="https://si0.twimg.com/profile_images/3460828003/2001ae3006cd0ad3b0e062c80ad774c1.jpeg">
-					<div class="tweet text-left">
-						<span>tera@まにゅん</span><span class="twitterId">@tera09</span>
+						<span>tera@まにゅん</span><span class="screenName">@tera09</span>
 						<p>もじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃもじもじうちゃちゃ</p>
 						<div class="action clearfix">
 							<div class="btn btn-link replay"><span class="hidden-phone">Replay</span><i class="icon-share-alt"></i></div>
