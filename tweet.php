@@ -120,17 +120,16 @@ body {
 						async : true,
 						dataType: 'json',
 						data: {
-							'tweet':$('textarea').val()
+							'tweet':$('#tweetButton textarea').val()
 							},
 							success: function(data){
 								alert("["+data.text+"]\nをツイートしました。");
 							},
 							failed: function(data){
-								alert("sippai"+data);
+								alert("失敗"+data);
 							}
-						}
-					);
-					$('#textarea').val("");
+					});
+					$('#tweetButton textarea').val("");
 				});
 
 				//UI setting
@@ -158,6 +157,7 @@ body {
 					data.forEach(function(e){addTimeline(e);});
 					$('.replay').unbind().bind('click',toggleReplayForm);
 					$('.profilelink').unbind().bind('click',openUserProfilePage);
+					$('.replayAction').unbind().bind('click',tweetReplay);
 				}
 			});
 		}
@@ -179,7 +179,7 @@ body {
 							<div class="span8 offset1">	\
 								<textarea rows="4" cols="50"></textarea>	\
 							</div>	\
-							<div class="span2 btn"><span>replay</span></div>	\
+							<div class="span2 btn replayAction"><span>replay</span></div>	\
 						</div>	\
 					</div>	\
 				</div>');

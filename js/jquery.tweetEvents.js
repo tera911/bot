@@ -15,3 +15,21 @@ function toggleReplayForm(){
 function openUserProfilePage(){
 	location.href = $(this).attr('user-url');
 }
+function tweetReplay(){
+	var textArea = $(this).parent().find('textarea');
+	var text = textArea.val();
+	$.ajax({
+		type: 'post',
+		url: './actions/post.php',
+		async : true,
+		dataType: 'json',
+		data: {'tweet': text},
+		success: function(data){
+			alert("["+data.text+"]\nをツイートしました。");
+		},
+		failed: function(data){
+			alert("失敗"+data);
+		}
+	});
+	textArea.val("");
+}
